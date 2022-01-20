@@ -1,11 +1,11 @@
 package exemplopoo;
     public class Caneta {
-        String modelo;
-        String cor;
-        float ponta;
-        int carga;
-        boolean tampada;
-        void status(){
+        public String modelo;
+        public String cor;
+        private float ponta;
+        protected int carga;
+        protected boolean tampada;
+        public void status(){
             System.out.println("Uma caneta "+this.cor);
             System.out.println("Qual o modelo? "+this.modelo);
             System.out.println("Ponta" +this.ponta);
@@ -13,7 +13,7 @@ package exemplopoo;
             System.out.println("Esta tampada? "+this.tampada);
         }
         
-        void rabiscar(){
+         public void rabiscar(){
             if(tampada){
                 System.out.println("Erro! Não posso rabiscar");
             }else{
@@ -21,7 +21,7 @@ package exemplopoo;
             }
             
         }
-        void tampar(){
+        protected void tampar(){
             this.tampada = true;
             
         }

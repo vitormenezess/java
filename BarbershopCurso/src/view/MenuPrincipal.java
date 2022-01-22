@@ -5,17 +5,23 @@
  */
 package view;
 
+import Controller.MenuPrincipalController;
+
 /**
  *
  * @author Windows 10
  */
 public class MenuPrincipal extends javax.swing.JFrame {
 
+    private final MenuPrincipalController controller;
+
     /**
      * Creates new form MenuPrincipal
      */
     public MenuPrincipal() {
         initComponents();
+        this.controller =new MenuPrincipalController(this);
+        
     }
 
     /**
@@ -33,6 +39,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuItemCliente = new javax.swing.JMenuItem();
         jMenuItemServico = new javax.swing.JMenuItem();
         jMenuOperacao = new javax.swing.JMenu();
+        jMenuItemAgenda = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,6 +58,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenuCadastro);
 
         jMenuOperacao.setText("Operação");
+
+        jMenuItemAgenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/icons/agenda-icon.png"))); // NOI18N
+        jMenuItemAgenda.setText("Agenda");
+        jMenuItemAgenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAgendaActionPerformed(evt);
+            }
+        });
+        jMenuOperacao.add(jMenuItemAgenda);
+
         jMenuBar1.add(jMenuOperacao);
 
         setJMenuBar(jMenuBar1);
@@ -72,6 +89,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItemAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAgendaActionPerformed
+        // TODO add your handling code here:
+        this.controller.navegarParaAgenda();
+    }//GEN-LAST:event_jMenuItemAgendaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -112,6 +134,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuCadastro;
+    private javax.swing.JMenuItem jMenuItemAgenda;
     private javax.swing.JMenuItem jMenuItemCliente;
     private javax.swing.JMenuItem jMenuItemServico;
     private javax.swing.JMenu jMenuOperacao;

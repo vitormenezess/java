@@ -8,6 +8,7 @@ package view;
 import Controller.LoginController;
 import Model.DAO.Banco;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /**
@@ -156,7 +157,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     public void setTxtSenha(JTextField txtSenha) {
-        this.txtSenha = txtSenha;
+        this.txtSenha = (JPasswordField) txtSenha;
     }
 
     public JTextField getTxtUsuario() {

@@ -16,7 +16,7 @@ public class Agendamento {
     private Servico servico;
     private float valor;
     private Date data;
-    private String observcao;
+    private String observacao;
 
     public Agendamento(int id, Cliente cliente, Servico servico, float valor, String data) {
         this.id = id;
@@ -29,6 +29,12 @@ public class Agendamento {
             Logger.getLogger(Agendamento.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public Agendamento(int id, Cliente cliente, Servico servico, float valor, String data, String observacao) {
+        this(id, cliente, servico, valor, data);
+        this.observacao = observacao;
+    }
+    
 
     public int getId() {
         return id;
@@ -46,12 +52,12 @@ public class Agendamento {
         this.cliente = cliente;
     }
 
-    public Servico getServicoID() {
+    public Servico getServico() {
         return servico;
     }
 
-    public void setServicoID(Servico servicoID) {
-        this.servico = servicoID;
+    public void setServico(Servico servico) {
+        this.servico = servico;
     }
 
     public float getValor() {
@@ -65,17 +71,23 @@ public class Agendamento {
     public Date getData() {
         return data;
     }
+    public String getDataFormatada(){
+        return new SimpleDateFormat("dd/MM/yyyy").format(data);
+    }
+    public String getHoraFormat(){
+        return new SimpleDateFormat("HH:mm").format(data);
+    }
 
     public void setData(Date data) {
         this.data = data;
     }
 
     public String getObservcao() {
-        return observcao;
+        return observacao;
     }
 
     public void setObservcao(String observcao) {
-        this.observcao = observcao;
+        this.observacao = observcao;
     }
     
     

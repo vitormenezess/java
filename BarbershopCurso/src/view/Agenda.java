@@ -5,17 +5,28 @@
  */
 package view;
 
+import Controller.AgendaController;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Windows 10
  */
 public class Agenda extends javax.swing.JFrame {
 
+    private final AgendaController controller;
+
     /**
      * Creates new form Agenda
      */
     public Agenda() {
         initComponents();
+        controller = new AgendaController(this);
+        iniciar();
+        
     }
 
     /**
@@ -47,7 +58,7 @@ public class Agenda extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblAgenda.setModel(new javax.swing.table.DefaultTableModel(
@@ -55,7 +66,7 @@ public class Agenda extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Cliente", "Serviço", "Valor", "Data", "Hora", "Title 7"
+                "Id", "Cliente", "Serviço", "Valor", "Data", "Hora", "Obdervação"
             }
         ));
         jScrollPane2.setViewportView(tblAgenda);
@@ -68,15 +79,28 @@ public class Agenda extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, 510, 200));
 
-        btnAgendar.setBackground(new java.awt.Color(204, 255, 255));
+        btnAgendar.setBackground(new java.awt.Color(102, 255, 102));
         btnAgendar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnAgendar.setText("Agendar");
+        btnAgendar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgendarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 370, 510, 30));
 
-        cmbCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(cmbCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 230, 30));
 
-        cmbServico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbServico.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbServicoItemStateChanged(evt);
+            }
+        });
+        cmbServico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbServicoActionPerformed(evt);
+            }
+        });
         getContentPane().add(cmbServico, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 230, 30));
 
         txtValor.addActionListener(new java.awt.event.ActionListener() {
@@ -164,6 +188,19 @@ public class Agenda extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtValorActionPerformed
 
+    private void cmbServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbServicoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbServicoActionPerformed
+
+    private void cmbServicoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbServicoItemStateChanged
+        this.controller.atualizaValor();
+    }//GEN-LAST:event_cmbServicoItemStateChanged
+
+    private void btnAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarActionPerformed
+        // TODO add your handling code here:
+        this.controller.agendar();
+    }//GEN-LAST:event_btnAgendarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -220,4 +257,79 @@ public class Agenda extends javax.swing.JFrame {
     private javax.swing.JTextArea txtObservacao;
     private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
+
+    private void iniciar() {
+        this.controller.atualizaTabela();
+        this.controller.atualizaCliente();
+        this.controller.atualizaServico();
+        this.controller.atualizaValor();
+    }
+
+    public JTable getTblAgenda() {
+        return tblAgenda;
+    }
+
+    public void setTblAgenda(JTable tblAgenda) {
+        this.tblAgenda = tblAgenda;
+    }
+
+    public JComboBox<String> getCmbCliente() {
+        return cmbCliente;
+    }
+
+    public void setCmbCliente(JComboBox<String> cmbCliente) {
+        this.cmbCliente = cmbCliente;
+    }
+
+    public JComboBox<String> getCmbServico() {
+        return cmbServico;
+    }
+
+    public void setCmbServico(JComboBox<String> cmbServico) {
+        this.cmbServico = cmbServico;
+    }
+
+    public JTextField getTxtValor() {
+        return txtValor;
+    }
+
+    public void setTxtValor(JTextField txtValor) {
+        this.txtValor = txtValor;
+    }
+
+    public JTextField getTxtData() {
+        return txtData;
+    }
+
+    public void setTxtData(JTextField txtData) {
+        this.txtData = txtData;
+    }
+
+    public JTextField getTxtHora() {
+        return txtHora;
+    }
+
+    public void setTxtHora(JTextField txtHora) {
+        this.txtHora = txtHora;
+    }
+
+    public JTextArea getTxtObservacao() {
+        return txtObservacao;
+    }
+
+    public void setTxtObservacao(JTextArea txtObservacao) {
+        this.txtObservacao = txtObservacao;
+    }
+
+    public JTextField getTxtId() {
+        return txtId;
+    }
+
+    public void setTxtId(JTextField txtId) {
+        this.txtId = txtId;
+    }
+    
+    
+    
+    
 }

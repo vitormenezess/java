@@ -33,6 +33,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenu1 = new javax.swing.JMenu();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuCadastro = new javax.swing.JMenu();
@@ -40,6 +41,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuItemServico = new javax.swing.JMenuItem();
         jMenuOperacao = new javax.swing.JMenu();
         jMenuItemAgenda = new javax.swing.JMenuItem();
+        jMenuRelatorio = new javax.swing.JMenu();
+
+        jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,6 +73,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuOperacao.add(jMenuItemAgenda);
 
         jMenuBar1.add(jMenuOperacao);
+
+        jMenuRelatorio.setText("Realatório");
+        jMenuBar1.add(jMenuRelatorio);
 
         setJMenuBar(jMenuBar1);
 
@@ -132,11 +139,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuCadastro;
     private javax.swing.JMenuItem jMenuItemAgenda;
     private javax.swing.JMenuItem jMenuItemCliente;
     private javax.swing.JMenuItem jMenuItemServico;
     private javax.swing.JMenu jMenuOperacao;
+    private javax.swing.JMenu jMenuRelatorio;
     // End of variables declaration//GEN-END:variables
 }

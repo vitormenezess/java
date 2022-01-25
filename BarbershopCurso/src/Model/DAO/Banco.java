@@ -33,7 +33,7 @@ public class Banco {
         
         //criando elementos
         
-        Usuario usuario1 = new Usuario(1, "barbeiro", 'M', "09/05/1996", "30212121", "barbeiro@barbershop.com", "521454123", "barbeiro", "administrador");
+        Usuario usuario1 = new Usuario(1, "barba", 'M', "09/05/1996", "30212121", "barbeiro@barbershop.com", "521454123", "barba", "administrador");
         Usuario usuario2 = new Usuario(2, "estagiario", 'M', "09/05/1996", "30212122", "estagiario@barbershop.com", "451244123", "estagiario", "funcionario");
          
         Cliente cliente1 = new Cliente(1, "Alan Figueiredo", 'M', "30/01/1995", "30212126", "tiagoluz.h607@gmail.com", "5142487", "Rua jaboti 35 Canudos NH",  "93300012");
